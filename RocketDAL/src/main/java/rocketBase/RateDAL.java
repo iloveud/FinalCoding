@@ -35,6 +35,10 @@ public class RateDAL {
 				alRates.add(rte);
 			}
 			
+			String hql = "FROM Employee E WHERE E.id > 10 ORDER BY E.salary DESC";
+			Query query = session.createQuery(hql);
+			List results = query.list();
+			
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
